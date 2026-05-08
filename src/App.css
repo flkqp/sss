@@ -1,0 +1,110 @@
+#root {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://a.d-cd.net/m6ZOh0oG8xXw-CzEfUyQxf3GmSI-1920.jpg");
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.money {
+  color: #fff;
+  border: solid;
+  border-radius: 10px;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 18px;
+}
+
+.weather-info {
+  color: #fff;
+  border: solid;
+  border-radius: 10px;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+}
+
+.weather-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.list-header {
+  color: aliceblue;
+  font-size: 24px;
+  padding-top: 20px;
+  text-shadow: 1px 1px 3px #000;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+input {
+   padding: 14px 32px 14px 16px;
+  border-radius: 4px 0 0 4px;
+  border: 3px solid #5d0cff;
+  outline: none;
+  background: white;
+  font-size: 16px;
+  width: 300px;
+  color: #000;
+}
+
+button {
+  padding: 16px 20px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(90deg, rgba(93, 12, 255, 1) 0%, #2ea4db 100%);
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+
+.item-todo {
+  padding: 14px;
+  margin: 10px auto;
+  text-align: left;
+  background: linear-gradient(90deg, rgba(93, 12, 255, 1) 0%, #2ea4db 100%);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-todo .item-text {
+  display: inline-block;
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+.item-todo .item-delete {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.strike {
+  text-decoration: line-through;
+}
