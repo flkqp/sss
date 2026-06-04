@@ -7,7 +7,8 @@ const ApiDocs = () => {
   const tabs = [
     {
       id: 'cbr',
-      title: 'ЦБ РФ (Валюты)',
+      title: '🏦 ЦБ РФ',
+      icon: '💵',
       content: (
         <div>
           <h3>API Центробанка России</h3>
@@ -25,7 +26,8 @@ const ApiDocs = () => {
     },
     {
       id: 'coingecko',
-      title: 'CoinGecko (Крипта)',
+      title: '🪙 Крипта',
+      icon: '₿',
       content: (
         <div>
           <h3>CoinGecko API</h3>
@@ -38,17 +40,13 @@ const ApiDocs = () => {
             <li><code>ids</code> — bitcoin, ethereum</li>
             <li><code>vs_currencies</code> — rub</li>
           </ul>
-          <h4>Возвращает:</h4>
-          <ul>
-            <li><code>bitcoin.rub</code> — курс Bitcoin в рублях</li>
-            <li><code>ethereum.rub</code> — курс Ethereum в рублях</li>
-          </ul>
         </div>
       )
     },
     {
       id: 'weather',
-      title: 'Open-Meteo (Погода)',
+      title: '🌤️ Погода',
+      icon: '🌡️',
       content: (
         <div>
           <h3>Open-Meteo API</h3>
@@ -66,19 +64,19 @@ const ApiDocs = () => {
     },
     {
       id: 'localstorage',
-      title: 'LocalStorage',
+      title: '💾 Хранилище',
+      icon: '🗄️',
       content: (
         <div>
-          <h3>LocalStorage API (Web Storage)</h3>
+          <h3>LocalStorage API</h3>
           <p><strong>Документация:</strong> <a href="https://developer.mozilla.org/ru/docs/Web/API/Window/localStorage" target="_blank">MDN Web Docs</a></p>
           <p><strong>Тип:</strong> Встроенный API браузера</p>
           <h4>Методы:</h4>
           <ul>
-            <li><code>setItem(key, value)</code> — сохранить данные</li>
-            <li><code>getItem(key)</code> — получить данные</li>
-            <li><code>removeItem(key)</code> — удалить данные</li>
+            <li><code>setItem(key, value)</code> — сохранить</li>
+            <li><code>getItem(key)</code> — получить</li>
+            <li><code>removeItem(key)</code> — удалить</li>
           </ul>
-          <p><strong>Используется для:</strong> Сохранение списка задач между сессиями</p>
         </div>
       )
     }
@@ -87,14 +85,19 @@ const ApiDocs = () => {
   return (
     <>
       <button className="docs-button" onClick={() => setOpen(true)}>
-        📚 Документация API
+        🤖 API Docs
       </button>
 
       {open && (
         <div className="modal-overlay" onClick={() => setOpen(false)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
             <button className="modal-close" onClick={() => setOpen(false)}>✕</button>
-            <h2>Документация API</h2>
+            
+            <div className="modal-header">
+              <span className="modal-ai-icon">🧠</span>
+              <h2>Документация API</h2>
+              <p className="modal-subtitle">Источники данных проекта</p>
+            </div>
             
             <div className="tabs">
               {tabs.map(tab => (
@@ -103,6 +106,7 @@ const ApiDocs = () => {
                   className={`tab ${activeTab === tab.id ? 'active' : ''}`}
                   onClick={() => setActiveTab(tab.id)}
                 >
+                  <span className="tab-icon">{tab.icon}</span>
                   {tab.title}
                 </button>
               ))}
@@ -110,6 +114,10 @@ const ApiDocs = () => {
 
             <div className="tab-content">
               {tabs.find(t => t.id === activeTab)?.content}
+            </div>
+
+            <div className="modal-footer">
+              <span>⚡ Powered by Open APIs</span>
             </div>
           </div>
         </div>
