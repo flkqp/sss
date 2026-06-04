@@ -15,11 +15,6 @@ const ApiDocs = () => {
           <p><strong>Формат:</strong> JSON</p>
           <p><strong>Бесплатно:</strong> Да, без ключа</p>
           <p><strong>Эндпоинт:</strong> <code>GET https://www.cbr-xml-daily.ru/daily_json.js</code></p>
-          <h4>Возвращает:</h4>
-          <ul>
-            <li><code>Valute.USD.Value</code> — курс доллара</li>
-            <li><code>Valute.EUR.Value</code> — курс евро</li>
-          </ul>
         </div>
       )
     },
@@ -33,11 +28,6 @@ const ApiDocs = () => {
           <p><strong>Формат:</strong> JSON</p>
           <p><strong>Бесплатно:</strong> Да, без ключа (10-30 запросов/мин)</p>
           <p><strong>Эндпоинт:</strong> <code>GET https://api.coingecko.com/api/v3/simple/price</code></p>
-          <h4>Параметры:</h4>
-          <ul>
-            <li><code>ids</code> — bitcoin, ethereum</li>
-            <li><code>vs_currencies</code> — rub</li>
-          </ul>
         </div>
       )
     },
@@ -51,11 +41,6 @@ const ApiDocs = () => {
           <p><strong>Формат:</strong> JSON</p>
           <p><strong>Бесплатно:</strong> Да, без ключа</p>
           <p><strong>Эндпоинт:</strong> <code>GET https://api.open-meteo.com/v1/forecast</code></p>
-          <h4>Параметры:</h4>
-          <ul>
-            <li><code>latitude, longitude</code> — координаты</li>
-            <li><code>current</code> — temperature_2m, wind_speed_10m, cloud_cover</li>
-          </ul>
         </div>
       )
     },
@@ -67,12 +52,6 @@ const ApiDocs = () => {
           <h3>LocalStorage API</h3>
           <p><strong>Документация:</strong> <a href="https://developer.mozilla.org/ru/docs/Web/API/Window/localStorage" target="_blank">MDN Web Docs</a></p>
           <p><strong>Тип:</strong> Встроенный API браузера</p>
-          <h4>Методы:</h4>
-          <ul>
-            <li><code>setItem(key, value)</code> — сохранить</li>
-            <li><code>getItem(key)</code> — получить</li>
-            <li><code>removeItem(key)</code> — удалить</li>
-          </ul>
         </div>
       )
     }
@@ -108,10 +87,6 @@ const ApiDocs = () => {
 
             <div className="tab-content">
               {tabs.find(t => t.id === activeTab)?.content}
-            </div>
-
-            <div className="modal-footer">
-              Open APIs
             </div>
           </div>
         </div>
