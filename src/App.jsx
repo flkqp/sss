@@ -3,6 +3,7 @@ import './App.css';
 import ToDoForm from "./AddTask";
 import ToDo from "./Task";
 import axios from 'axios';
+import ApiDocs from "./ApiDocs";
 
 const TASKS_STORAGE_KEY = 'tasks-list-project-web';
 
@@ -18,6 +19,7 @@ function getWeatherIcon(code) {
 
 function App() {
   const [rates, setRates] = useState({});
+  const [crypto, setCrypto] = useState({});
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -51,6 +53,15 @@ function App() {
         const EURrate = currencyResponse.data.Valute.EUR.Value.toFixed(4).replace('.', ',');
 
         setRates({ USDrate, EURrate });
+
+        // Криптовалюты
+        const cryptoResponse = await axios.get(
+          'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=rub'
+        );
+        setCrypto({
+          BTC: cryptoResponse.data.bitcoin.rub,
+          ETH: cryptoResponse.data.ethereum.rub
+        });
 
         const lat = 45.0448;
         const lon = 38.9760;
@@ -138,6 +149,10 @@ function App() {
                   Евро € — {rates.EURrate} руб.
                 </div>
               </div>
+              <div className='money'>
+                <div>₿ Bitcoin — {crypto.BTC?.toLocaleString()} ₽</div>
+                <div>Ξ Ethereum — {crypto.ETH?.toLocaleString()} ₽</div>
+              </div>
               {weatherData && (
                 <div className="weather-info">
                   <p>Погода сегодня: <br />
@@ -169,6 +184,7 @@ function App() {
           );
         })}
       </div>
+      <ApiDocs />
     </>
   );
 }
