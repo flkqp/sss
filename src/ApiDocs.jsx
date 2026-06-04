@@ -7,8 +7,7 @@ const ApiDocs = () => {
   const tabs = [
     {
       id: 'cbr',
-      title: '🏦 ЦБ РФ',
-      icon: '💵',
+      title: 'ЦБ РФ',
       content: (
         <div>
           <h3>API Центробанка России</h3>
@@ -26,8 +25,7 @@ const ApiDocs = () => {
     },
     {
       id: 'coingecko',
-      title: '🪙 Крипта',
-      icon: '₿',
+      title: 'Криптовалюта',
       content: (
         <div>
           <h3>CoinGecko API</h3>
@@ -45,8 +43,7 @@ const ApiDocs = () => {
     },
     {
       id: 'weather',
-      title: '🌤️ Погода',
-      icon: '🌡️',
+      title: 'Погода',
       content: (
         <div>
           <h3>Open-Meteo API</h3>
@@ -64,8 +61,7 @@ const ApiDocs = () => {
     },
     {
       id: 'localstorage',
-      title: '💾 Хранилище',
-      icon: '🗄️',
+      title: 'Хранилище',
       content: (
         <div>
           <h3>LocalStorage API</h3>
@@ -85,16 +81,15 @@ const ApiDocs = () => {
   return (
     <>
       <button className="docs-button" onClick={() => setOpen(true)}>
-        🤖 API Docs
+        Документация API
       </button>
 
       {open && (
         <div className="modal-overlay" onClick={() => setOpen(false)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setOpen(false)}>✕</button>
+            <button className="modal-close" onClick={() => setOpen(false)}>X</button>
             
             <div className="modal-header">
-              <span className="modal-ai-icon">🧠</span>
               <h2>Документация API</h2>
               <p className="modal-subtitle">Источники данных проекта</p>
             </div>
@@ -106,7 +101,6 @@ const ApiDocs = () => {
                   className={`tab ${activeTab === tab.id ? 'active' : ''}`}
                   onClick={() => setActiveTab(tab.id)}
                 >
-                  <span className="tab-icon">{tab.icon}</span>
                   {tab.title}
                 </button>
               ))}
@@ -117,7 +111,7 @@ const ApiDocs = () => {
             </div>
 
             <div className="modal-footer">
-              <span>⚡ Powered by Open APIs</span>
+              Open APIs
             </div>
           </div>
         </div>
