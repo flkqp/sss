@@ -19,7 +19,8 @@ function getWeatherIcon(code) {
 
 function App() {
   const [rates, setRates] = useState({});
-  const [crypto, setCrypto] = useState({});
+  const [pokemon, setPokemon] = useState(null);
+  const [pokemonId, setPokemonId] = useState(1);
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -54,13 +55,17 @@ function App() {
 
         setRates({ USDrate, EURrate });
 
-        // Криптовалюты
-        const cryptoResponse = await axios.get(
-          'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=rub'
+        // Покемон
+        const pokemonResponse = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${pokemonId}`
         );
-        setCrypto({
-          BTC: cryptoResponse.data.bitcoin.rub,
-          ETH: cryptoResponse.data.ethereum.rub
+
+        setPokemon({
+          name: pokemonResponse.data.name,
+          image: pokemonResponse.data.sprites.front_default,
+          type: pokemonResponse.data.types.map(t => t.type.name).join(', '),
+          height: pokemonResponse.data.height / 10,
+          weight: pokemonResponse.data.weight / 10,
         });
 
         const lat = 45.0448;
@@ -100,7 +105,7 @@ function App() {
     }
 
     fetchAllData();
-  }, []);
+  }, [pokemonId]);
 
   useEffect(() => {
     try {
@@ -149,10 +154,23 @@ function App() {
                   Евро € — {rates.EURrate} руб.
                 </div>
               </div>
-              <div className='money'>
-                <div>₿ Bitcoin — {crypto.BTC?.toLocaleString()} ₽</div>
-                <div>Ξ Ethereum — {crypto.ETH?.toLocaleString()} ₽</div>
-              </div>
+
+              {pokemon && (
+                <div className="pokemon-card">
+                  <h3>{pokemon.name}</h3>
+                  <img src={pokemon.image} alt={pokemon.name} />
+                  <p>Тип: {pokemon.type}</p>
+                  <p>Рост: {pokemon.height} м</p>
+                  <p>Вес: {pokemon.weight} кг</p>
+                  <button
+                    className="pokemon-btn"
+                    onClick={() => setPokemonId(Math.floor(Math.random() * 898) + 1)}
+                  >
+                    Случайный покемон
+                  </button>
+                </div>
+              )}
+
               {weatherData && (
                 <div className="weather-info">
                   <p>Погода сегодня: <br />

@@ -19,15 +19,15 @@ const ApiDocs = () => {
       )
     },
     {
-      id: 'coingecko',
-      title: 'Криптовалюта',
+      id: 'pokemon',
+      title: 'PokéAPI',
       content: (
         <div>
-          <h3>CoinGecko API</h3>
-          <p><strong>Документация:</strong> <a href="https://docs.coingecko.com/reference/introduction" target="_blank">docs.coingecko.com</a></p>
+          <h3>PokéAPI</h3>
+          <p><strong>Документация:</strong> <a href="https://pokeapi.co" target="_blank">pokeapi.co</a></p>
           <p><strong>Формат:</strong> JSON</p>
-          <p><strong>Бесплатно:</strong> Да, без ключа (10-30 запросов/мин)</p>
-          <p><strong>Эндпоинт:</strong> <code>GET https://api.coingecko.com/api/v3/simple/price</code></p>
+          <p><strong>Бесплатно:</strong> Да, без ключа</p>
+          <p><strong>Эндпоинт:</strong> <code>GET https://pokeapi.co/api/v2/pokemon/1</code></p>
         </div>
       )
     },

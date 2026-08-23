@@ -282,3 +282,46 @@ button {
   border-color: #5a5a7a;
   font-weight: 600;
 }
+.pokemon-card {
+  background: #252538;
+  border: 1px solid #3d3d55;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  color: #c5c5d2;
+  min-width: 220px;
+}
+
+.pokemon-card h3 {
+  margin: 0 0 10px;
+  color: #e0e0f0;
+  text-transform: capitalize;
+}
+
+.pokemon-card img {
+  width: 120px;
+  height: 120px;
+  image-rendering: pixelated;
+}
+
+.pokemon-card p {
+  margin: 5px 0;
+  color: #a5a5b8;
+}
+
+.pokemon-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #3d3d55;
+  color: #e0e0f0;
+  border: 1px solid #5a5a7a;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.pokemon-btn:hover {
+  background: #4a4a6a;
+  color: #fff;
+}
